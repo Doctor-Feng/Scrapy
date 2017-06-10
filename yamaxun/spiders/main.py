@@ -9,5 +9,5 @@ class MySpider(scrapy.spiders.BaseSpider):
             item = YamaxunItem()
             #item['name'] = sel.xpath('//div[@class="a-row a-spacing-none"]/a[@class="a-link-normal s-access-detail-page  s-color-twister-title-link a-text-normal"]/h2[@class="a-size-base s-inline  s-access-title a-text-normal"]/text()')[0].extract()
             item['name'] = sel.xpath('//div[@class="a-row a-spacing-none"]/a[@class="a-link-normal s-access-detail-page  s-color-twister-title-link a-text-normal"]/h2/text()').extract()
-
+            item['price'] = sel.xpath('//div[@class="a-row a-spacing-none"]/a[@class="a-link-normal a-text-normal"]/span/text()').extract()
             yield item
